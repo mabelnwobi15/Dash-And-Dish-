@@ -1,32 +1,29 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
-type ScreenName =
-  | 'Splash'
-  | 'Auth'
-  | 'Home'
-  | 'Menu'
-  | 'DishDetail'
-  | 'Cart'
-  | 'Checkout'
-  | 'Confirmation'
-  | 'Orders'
-  | 'Profile'
-  | 'RestaurantInfo';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 type Props = {
-  goToScreen: (screen: ScreenName) => void;
+  goToScreen: (screen: string) => void;
 };
 
 export default function SplashScreen({ goToScreen }: Props) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      goToScreen('Auth');
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Dash & Dish</Text>
-      <Text style={styles.subtitle}>Canteen and restaurant app for students</Text>
+      <Image
+        source={require('../assets/logo.png')}
+        style={styles.logo}
+        resizeMode="contain"
+      />
 
-      <TouchableOpacity style={styles.button} onPress={() => goToScreen('Auth')}>
-        <Text style={styles.buttonText}>Get Started</Text>
-      </TouchableOpacity>
+      <Text style={styles.title}>Dash n Dish</Text>
+      <Text style={styles.subtitle}>Fast food delivery at your fingertips</Text>
     </View>
   );
 }
@@ -34,32 +31,25 @@ export default function SplashScreen({ goToScreen }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E6F4FE',
+    backgroundColor: '#F7F7F5',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 24,
+    paddingHorizontal: 20,
+  },
+  logo: {
+    width: 280,
+    height: 180,
+    marginBottom: 20,
   },
   title: {
-    fontSize: 34,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#354F52',
-    marginBottom: 10,
+    color: '#1F3A44',
   },
   subtitle: {
+    marginTop: 8,
     fontSize: 16,
+    color: '#FF5A36',
     textAlign: 'center',
-    color: '#354F52',
-    marginBottom: 30,
-  },
-  button: {
-    backgroundColor: '#FF5E3A',
-    paddingVertical: 14,
-    paddingHorizontal: 30,
-    borderRadius: 14,
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
   },
 });
