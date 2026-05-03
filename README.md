@@ -1,9 +1,10 @@
-🍽️ Dash & Dish
-<img width="1408" height="630" alt="WhatsApp Image 2026-05-03 at 20 46 44" src="https://github.com/user-attachments/assets/6862ca24-aa44-40cb-a420-a9f9183c3225" />
+Dash & Dish
 
 Fast Food Delivery at Your Fingertips
 
 Dash & Dish is a mobile food delivery application built using React Native and Expo. The app allows users to browse meals, add items to their cart, and complete orders through a clean and intuitive interface.
+
+<img width="1408" height="630" alt="WhatsApp Image 2026-05-03 at 20 46 44" src="https://github.com/user-attachments/assets/6862ca24-aa44-40cb-a420-a9f9183c3225" />
 
 📌 Project Overview
 
